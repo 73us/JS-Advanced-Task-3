@@ -1,0 +1,23 @@
+<!-- HEADER START -->
+<header>
+    <h1>Plan your day!</h1>
+    <p>User: {{userFirstName}} {{userLastName}}. Count of Task {{ taskCount }}</p>
+    <hr>
+</header>
+<!-- HEADER END -->
+
+<!-- MAIN START -->
+<main>
+    <!-- input start -->
+    <section class="input-part">
+        <input type="text" [(ngModel)]="taskName" class="input">
+        <button (click)="addTask()" class="add-btn" [disabled]="!taskName||editStatus">Add</button>
+    </section>
+    <!-- input end -->
+    <!-- table start -->
+    <section class="table-part">
+        <app-child (giveTaskCount)="getCount($event)"></app-child>
+    </section>
+    <!-- table end -->
+</main>
+<!-- MAIN END -->
